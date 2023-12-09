@@ -23,7 +23,6 @@ public class Vt1 {
     //    private static final Lock lock = new ReentrantLock();
     private static final ThreadLocal<String> context = new ThreadLocal<>();
 
-    // synchronizedで同期処理にしてみる
     @SneakyThrows
     private static void sleep(Duration duration) {
         Thread.sleep(duration);  // unmount(スレッドを譲る)
@@ -64,7 +63,8 @@ public class Vt1 {
 
             List<Future<Integer>> futures = new ArrayList<>();
 
-            var numCore = Runtime.getRuntime().availableProcessors();
+//            var numCore = Runtime.getRuntime().availableProcessors();
+            var numCore = 100_000;
 
             IntStream.range(0, numCore + 1).forEach(i -> {
                 // Submit a task and get a Future
