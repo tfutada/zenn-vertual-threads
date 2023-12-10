@@ -63,8 +63,8 @@ public class Vt1 {
 
             List<Future<Integer>> futures = new ArrayList<>();
 
-//            var numCore = Runtime.getRuntime().availableProcessors();
-            var numCore = 100_000;
+            var numCore = Runtime.getRuntime().availableProcessors();
+//            var numCore = 100_000;
 
             IntStream.range(0, numCore + 1).forEach(i -> {
                 // Submit a task and get a Future
